@@ -19,21 +19,18 @@ public class PistonController : MonoBehaviour
         rightStartPos = rightPiston.localPosition;
     }
 
-    public void SortFruit(GameObject fruit, string label)
+    public void SortBall(GameObject ball, string label)
     {
-        Debug.Log("Sorting fruit: " + label);
-
-        if (label == "apple")
+        if (label == "red")
             StartCoroutine(ActivatePiston(leftPiston, leftStartPos));
-
-        else if (label == "orange")
+        else if (label == "yellow")
             StartCoroutine(ActivatePiston(rightPiston, rightStartPos));
-
         else
         {
-            // 3rd fruit → continue straight
+            // "green" → no piston, fruit continues straight
         }
     }
+
 
     IEnumerator ActivatePiston(Transform piston, Vector3 startPos)
     {

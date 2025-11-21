@@ -7,29 +7,29 @@ public class RightPistonTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Fruit")) return;
+        if (!other.CompareTag("Ball")) return;
         if (busy) return;
 
-        FruitLabel fl = other.GetComponent<FruitLabel>();
+        BallLabel fl = other.GetComponent<BallLabel>();
         if (fl == null) return;
 
-        // Only orange activates RIGHT piston
-        if (fl.label != "orange") return;
+        // Only YELLOW ball activates RIGHT piston
+        if (fl.label != "yellow") return;
 
         busy = true;
 
-        GameObject fruit = other.gameObject;
-        StartCoroutine(ProcessRightPiston(fruit));
+        GameObject ball = other.gameObject;
+        StartCoroutine(ProcessRightPiston(ball));
     }
 
-    IEnumerator ProcessRightPiston(GameObject fruit)
+    IEnumerator ProcessRightPiston(GameObject ball)
     {
         SortingManager.Instance.belt.StopBelt();
         SortingManager.Instance.spawner.canSpawn = false;
 
         yield return new WaitForSeconds(0.35f);
 
-        SortingManager.Instance.pistons.SortFruit(fruit, "orange");
+        SortingManager.Instance.pistons.SortBall(ball, "yellow");
 
         yield return new WaitForSeconds(1.0f);
 

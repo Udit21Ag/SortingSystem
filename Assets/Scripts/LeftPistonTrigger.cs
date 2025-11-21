@@ -7,29 +7,29 @@ public class LeftPistonTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Fruit")) return;
+        if (!other.CompareTag("Ball")) return;
         if (busy) return;
 
-        FruitLabel fl = other.GetComponent<FruitLabel>();
+        BallLabel fl = other.GetComponent<BallLabel>();
         if (fl == null) return;
 
-        // Only apple activates LEFT piston
-        if (fl.label != "apple") return;
+        // Only RED ball activates LEFT piston
+        if (fl.label != "red") return;
 
         busy = true;
 
-        GameObject fruit = other.gameObject;
-        StartCoroutine(ProcessLeftPiston(fruit));
+        GameObject ball = other.gameObject;
+        StartCoroutine(ProcessLeftPiston(ball));
     }
 
-    IEnumerator ProcessLeftPiston(GameObject fruit)
+    IEnumerator ProcessLeftPiston(GameObject ball)
     {
         SortingManager.Instance.belt.StopBelt();
         SortingManager.Instance.spawner.canSpawn = false;
 
         yield return new WaitForSeconds(0.35f);
 
-        SortingManager.Instance.pistons.SortFruit(fruit, "apple");
+        SortingManager.Instance.pistons.SortBall(ball, "red");
 
         yield return new WaitForSeconds(1.0f);
 

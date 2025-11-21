@@ -10,11 +10,12 @@ public class ConveyorBelt : MonoBehaviour
         if (!isRunning) return;
 
         Rigidbody rb = collision.rigidbody;
+        if (rb == null) return;
 
-        if (rb != null)
-        {
-            // Move fruit along the X-axis
-            rb.linearVelocity = transform.right * beltSpeed;
-        }
+        // Move ball along the belt direction
+        rb.linearVelocity = transform.right * beltSpeed;
+
+        // OPTIONAL: tiny downward force to keep contact with belt
+        // rb.AddForce(Vector3.down * 10f, ForceMode.Force);
     }
 }
