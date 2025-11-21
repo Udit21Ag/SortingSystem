@@ -6,7 +6,7 @@ public class PistonController : MonoBehaviour
     public Transform leftPiston;
     public Transform rightPiston;
 
-    public float extendDistance = 1.0f;
+    public float extendDistance = 2.0f;
     public float extendSpeed = 6f;
     public float retractDelay = 0.4f;
 

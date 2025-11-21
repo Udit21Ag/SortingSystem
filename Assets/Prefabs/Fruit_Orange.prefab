@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 474476838620809421}
   - component: {fileID: 1238993829279922166}
   - component: {fileID: 6802485006351256597}
+  - component: {fileID: 8712114439846175170}
   m_Layer: 0
   m_Name: Fruit_Orange
   m_TagString: Fruit
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 0.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -152,3 +153,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea88102fc6cb24b26a10b748d51e9c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FruitMover
+--- !u!114 &8712114439846175170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780989099866383343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6261f28badb1c4091bf13611d04a968f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitLabel
+  label: Orange

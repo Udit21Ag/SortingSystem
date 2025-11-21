@@ -29,6 +29,15 @@ public class FruitSpawner : MonoBehaviour
         if (fruits.Length == 0) return;
 
         int index = Random.Range(0, fruits.Length);
-        Instantiate(fruits[index], spawnPoint.position, Quaternion.identity);
+
+        GameObject newFruit = Instantiate(fruits[index], spawnPoint.position, Quaternion.identity);
+
+        FruitLabel fl = newFruit.GetComponent<FruitLabel>();
+        if (fl != null)
+        {
+            string raw = fruits[index].name.ToLower();
+            raw = raw.Replace("fruit_", "");   // remove prefix
+            fl.label = raw;                    // clean label
+        }
     }
 }

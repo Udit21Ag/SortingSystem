@@ -10,16 +10,15 @@ public class RightPistonTrigger : MonoBehaviour
         if (!other.CompareTag("Fruit")) return;
         if (busy) return;
 
-        // Get classification
-        string label = SortingManager.Instance.lastFruitLabel;
+        FruitLabel fl = other.GetComponent<FruitLabel>();
+        if (fl == null) return;
 
-        // Only ORANGE activates right piston
-        if (label != "orange") return;
+        // Only orange activates RIGHT piston
+        if (fl.label != "orange") return;
 
         busy = true;
 
         GameObject fruit = other.gameObject;
-
         StartCoroutine(ProcessRightPiston(fruit));
     }
 
